@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        padding: 20px 10px;
+        background: transparent;
+        font-family: Georgia, "Times New Roman", serif;
+        color: #1f1f1f;
+    }
+
+    .contador-boda {
+        width: 100%;
+        text-align: center;
+    }
+
+    .titulo {
+        margin: 0 0 25px;
+        font-size: 32px;
+        font-weight: normal;
+        font-style: italic;
+    }
+
+    .tiempo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .bloque {
+        min-width: 100px;
+    }
+
+    .numero {
+        display: block;
+        font-size: 48px;
+        font-weight: bold;
+        line-height: 1;
+        color: #5a1f27;
+    }
+
+    .texto {
+        display: block;
+        margin-top: 8px;
+        font-size: 15px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+
+    .separador {
+        font-size: 35px;
+        color: #5a1f27;
+        margin-top: -20px;
+    }
+
+    .mensaje-final {
+        display: none;
+        font-size: 30px;
+        color: #5a1f27;
+        font-style: italic;
+    }
+
+    @media (max-width: 600px) {
+        .titulo {
+            font-size: 27px;
+        }
+
+        .tiempo {
+            gap: 10px;
+        }
+
+        .bloque {
+            min-width: 70px;
+        }
+
+        .numero {
+            font-size: 36px;
+        }
+
+        .texto {
+            font-size: 11px;
+            letter-spacing: 1px;
+        }
+
+        .separador {
+            font-size: 25px;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="contador-boda">
+
+    <h2 class="titulo">Faltan...</h2>
+
+    <div class="tiempo" id="contador">
+
+        <div class="bloque">
+            <span class="numero" id="dias">000</span>
+            <span class="texto">Días</span>
+        </div>
+
+        <span class="separador">·</span>
+
+        <div class="bloque">
+            <span class="numero" id="horas">00</span>
+            <span class="texto">Horas</span>
+        </div>
+
+        <span class="separador">·</span>
+
+        <div class="bloque">
+            <span class="numero" id="minutos">00</span>
+            <span class="texto">Minutos</span>
+        </div>
+
+        <span class="separador">·</span>
+
+        <div class="bloque">
+            <span class="numero" id="segundos">00</span>
+            <span class="texto">Segundos</span>
+        </div>
+
+    </div>
+
+    <div class="mensaje-final" id="mensajeFinal">
+        ¡Llegó nuestro gran día! ♡
+    </div>
+
+</div>
+
+
+<script>
+
+    /*
+       FECHA DEL MATRIMONIO
+       23 DE ABRIL DE 2027
+
+       Actualmente está configurado para las 00:00.
+       Cuando sepamos la hora de la ceremonia,
+       podemos cambiarla.
+    */
+
+    const fechaBoda = new Date("2027-04-23T00:00:00-04:00").getTime();
+
+    function actualizarContador() {
+
+        const ahora = new Date().getTime();
+        const diferencia = fechaBoda - ahora;
+
+        if (diferencia <= 0) {
+
+            document.getElementById("contador").style.display = "none";
+            document.getElementById("mensajeFinal").style.display = "block";
+
+            return;
+        }
+
+        const dias = Math.floor(
+            diferencia / (1000 * 60 * 60 * 24)
+        );
+
+        const horas = Math.floor(
+            (diferencia % (1000 * 60 * 60 * 24)) /
+            (1000 * 60 * 60)
+        );
+
+        const minutos = Math.floor(
+            (diferencia % (1000 * 60 * 60)) /
+            (1000 * 60)
+        );
+
+        const segundos = Math.floor(
+            (diferencia % (1000 * 60)) /
+            1000
+        );
+
+
+        document.getElementById("dias").textContent =
+            String(dias).padStart(3, "0");
+
+        document.getElementById("horas").textContent =
+            String(horas).padStart(2, "0");
+
+        document.getElementById("minutos").textContent =
+            String(minutos).padStart(2, "0");
+
+        document.getElementById("segundos").textContent =
+            String(segundos).padStart(2, "0");
+    }
+
+
+    actualizarContador();
+
+    setInterval(actualizarContador, 1000);
+
+</script>
+
+</body>
+</html>

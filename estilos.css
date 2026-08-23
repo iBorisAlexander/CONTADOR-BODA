@@ -42,82 +42,161 @@ button { font: inherit; }
 }
 .sobre {
   position: relative;
-  width: min(92vw, 410px);
-  aspect-ratio: 1084 / 1451;
+  width: min(88vw, 430px);
+  aspect-ratio: 1.38 / 1;
   border: 0;
   padding: 0;
   background: transparent;
   cursor: pointer;
-  filter: drop-shadow(0 22px 32px rgba(53, 18, 21, .25));
+  perspective: 1200px;
+  filter: drop-shadow(0 24px 32px rgba(53, 18, 21, .28));
   transform: translateZ(0);
+  overflow: visible;
 }
-.sobre-imagen {
+
+/* Textura común para las distintas piezas del sobre */
+.sobre-cuerpo,
+.frente-sobre,
+.solapa,
+.sobre-lateral {
   position: absolute;
   inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 4px;
-  transition: transform 1.15s cubic-bezier(.2,.8,.2,1), opacity 1s ease;
+  border-radius: 5px;
+  background:
+    linear-gradient(rgba(111,23,37,.84), rgba(111,23,37,.84)),
+    url("assets/sobre.png") center / cover;
 }
+
+.sobre-cuerpo {
+  z-index: 1;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.04);
+}
+
+/* Laterales internos: forman la sensación de bolsillo */
+.sobre-lateral {
+  z-index: 3;
+  pointer-events: none;
+  border-radius: 0;
+  background: linear-gradient(145deg, #7a1e2d 0%, #54101b 100%);
+}
+.sobre-lateral-izq {
+  clip-path: polygon(0 0, 54% 50%, 0 100%);
+}
+.sobre-lateral-der {
+  clip-path: polygon(100% 0, 46% 50%, 100% 100%);
+}
+
+/* Tarjeta que sale de dentro */
+.tarjeta-interior {
+  position: absolute;
+  z-index: 2;
+  left: 8%;
+  right: 8%;
+  bottom: 8%;
+  height: 86%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 22px;
+  color: var(--vino);
+  background: var(--crema) url("assets/fondo.png") center / cover;
+  border: 1px solid rgba(111,23,37,.15);
+  border-radius: 3px;
+  box-shadow: 0 10px 24px rgba(0,0,0,.16);
+  opacity: 0;
+  transform: translateY(15%) scale(.97);
+  transition:
+    transform 1.15s cubic-bezier(.22,.75,.2,1) .62s,
+    opacity .28s ease .62s;
+  pointer-events: none;
+}
+.tarjeta-nombres {
+  font-family: var(--cursiva);
+  font-size: clamp(34px, 7vw, 52px);
+  line-height: 1.05;
+}
+.tarjeta-fecha {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 3px;
+}
+
+/* Solapa superior. Se dibuja aparte para poder rotarla en 3D. */
+.solapa {
+  z-index: 6;
+  transform-origin: 50% 0%;
+  transform: rotateX(0deg);
+  backface-visibility: visible;
+  clip-path: polygon(0 0, 100% 0, 50% 58%);
+  background:
+    linear-gradient(rgba(120,28,43,.76), rgba(83,15,25,.88)),
+    url("assets/sobre.png") 50% 16% / 115% auto;
+  transition: transform 1s cubic-bezier(.22,.75,.2,1);
+  filter: drop-shadow(0 8px 8px rgba(39,5,11,.20));
+}
+
+/* Frente inferior: queda por encima de la tarjeta mientras esta sale */
+.frente-sobre {
+  z-index: 4;
+  pointer-events: none;
+  clip-path: polygon(0 34%, 50% 74%, 100% 34%, 100% 100%, 0 100%);
+  background:
+    linear-gradient(rgba(102,18,31,.90), rgba(76,11,21,.96)),
+    url("assets/sobre.png") center bottom / cover;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.04);
+}
+
 .sello {
   position: absolute;
+  z-index: 7;
   left: 50%;
-  top: 55%;
+  top: 38%;
   transform: translate(-50%, -50%);
-  width: 112px;
-  height: 112px;
+  width: 108px;
+  height: 108px;
   border-radius: 50%;
   display: grid;
   place-content: center;
   gap: 3px;
   color: #fff8f1;
-  border: 1px solid rgba(255,255,255,.7);
-  background: rgba(73, 8, 19, .60);
-  box-shadow: inset 0 0 0 5px rgba(255,255,255,.08), 0 6px 16px rgba(0,0,0,.16);
-  transition: opacity .45s ease, transform .65s ease;
+  border: 1px solid rgba(255,255,255,.72);
+  background: rgba(73, 8, 19, .72);
+  box-shadow: inset 0 0 0 5px rgba(255,255,255,.06), 0 6px 16px rgba(0,0,0,.18);
+  transition: opacity .3s ease .15s, transform .45s ease .15s;
 }
 .sello-iniciales { font-family: var(--cursiva); font-size: 31px; line-height: 1; }
 .sello-fecha { font-size: 9px; letter-spacing: 1.7px; }
-.tarjeta-interior {
-  position: absolute;
-  z-index: 2;
-  left: 12%;
-  right: 12%;
-  bottom: 18%;
-  height: 40%;
-  display: grid;
-  place-items: center;
-  padding: 18px;
-  color: var(--vino);
-  background: var(--crema) url("assets/fondo.png") center / cover;
-  border: 1px solid rgba(111,23,37,.16);
-  box-shadow: 0 8px 22px rgba(0,0,0,.18);
-  font-family: var(--cursiva);
-  font-size: clamp(30px, 7vw, 46px);
-  opacity: 0;
-  transform: translateY(34%) scale(.96);
-  transition: transform .9s cubic-bezier(.17,.84,.44,1) .18s, opacity .35s ease .1s;
-  pointer-events: none;
-}
-.sobre.abriendo .tarjeta-interior {
-  opacity: 1;
-  transform: translateY(-58%) scale(1);
+
+/* Estado abierto */
+.sobre.abriendo .solapa {
+  transform: rotateX(178deg);
+  z-index: 0;
 }
 .sobre.abriendo .sello {
   opacity: 0;
-  transform: translate(-50%, -50%) scale(.75);
+  transform: translate(-50%, -50%) scale(.76);
 }
-.sobre.abriendo .sobre-imagen {
-  transform: translateY(7%) scale(1.02);
-  opacity: .48;
+.sobre.abriendo .tarjeta-interior {
+  opacity: 1;
+  transform: translateY(-72%) scale(1);
 }
+.sobre.abriendo {
+  animation: sobreRespira 1.65s ease forwards;
+}
+@keyframes sobreRespira {
+  0% { transform: scale(1); }
+  45% { transform: scale(1.018); }
+  100% { transform: scale(1); }
+}
+
 .portada.saliendo .portada-contenido {
-  animation: salidaPortada .72s ease forwards;
+  animation: salidaPortada .78s ease forwards;
 }
 @keyframes salidaPortada {
   from { opacity: 1; transform: translateY(0) scale(1); }
-  to { opacity: 0; transform: translateY(-18px) scale(1.015); }
+  to { opacity: 0; transform: translateY(-20px) scale(1.018); }
 }
 
 .boton-abrir {

@@ -7,20 +7,21 @@ function abrirInvitacion() {
   if (abriendo) return;
   abriendo = true;
 
-  // 1) La tarjeta aparece y sale del sobre.
+  // 1) Se rompe visualmente el sello y la solapa gira hacia atrás.
+  // 2) Luego la tarjeta sale desde el bolsillo del sobre.
   sobre.classList.add('abriendo');
 
-  // 2) Dejamos que el invitado alcance a ver la tarjeta fuera del sobre.
+  // 3) Dejamos la tarjeta visible un instante antes de entrar a la invitación.
   setTimeout(() => {
     portada.classList.add('saliendo');
-  }, 1150);
+  }, 2050);
 
-  // 3) La portada desaparece por completo y queda visible la invitación.
+  // 4) Se retira la portada y queda la invitación completa, sin recargar la página.
   setTimeout(() => {
     portada.classList.add('oculta');
     document.body.classList.remove('sin-scroll');
     window.scrollTo({ top: 0, behavior: 'auto' });
-  }, 1820);
+  }, 2820);
 }
 
 sobre.addEventListener('click', abrirInvitacion);

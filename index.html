@@ -53,17 +53,23 @@
         <img src="assets/foto-pareja.png" alt="Boris y Dominique" />
       </div>
 
-      <h2>Dale play a nuestra canción</h2>
+      <h2>Nuestra canción</h2>
 
-      <div class="video">
-        <iframe
-          src="https://www.youtube.com/embed/j09cI6t18NA"
-          title="Camilo - La Boda (Official Video)"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen>
-        </iframe>
+      <div class="reproductor-boda" aria-label="Reproductor de nuestra canción">
+        <button class="reproductor-play" id="reproductorPlay" type="button" aria-label="Pausar o reproducir canción">
+          <span id="iconoPlay">❚❚</span>
+        </button>
+        <div class="reproductor-info">
+          <strong>La Boda</strong>
+          <span>Camilo</span>
+          <div class="barra-audio" aria-hidden="true">
+            <div class="progreso-audio" id="progresoAudio"></div>
+          </div>
+        </div>
+        <span class="tiempo-audio" id="tiempoAudio">0:00</span>
       </div>
+
+      <p class="nota-musica">La canción comienza al abrir la invitación ♡</p>
     </section>
 
     <section class="seccion mensaje revelar">
@@ -117,15 +123,15 @@
       <h2>¡Muchas gracias!</h2>
       <div class="ornamento">❦</div>
       <blockquote>
-  “Mejores son dos que uno; porque tienen mejor paga de su trabajo.<br><br>
-  Porque si cayeren, el uno levantará a su compañero;<br>
-  pero ¡ay del solo! que cuando cayere, no habrá segundo que lo levante.<br><br>
-  También si dos durmieren juntos, se calentarán mutuamente;<br>
-  mas ¿cómo se calentará uno solo?<br><br>
-  Y si alguno prevaleciere contra uno, dos le resistirán;<br>
-  y cordón de tres dobleces no se rompe pronto.”
+        “Mejores son dos que uno; porque tienen mejor paga de su trabajo.<br><br>
+        Porque si cayeren, el uno levantará á su compañero:
+        mas ¡ay del solo! que cuando cayere, no habrá segundo que lo levante.<br><br>
+        También si dos durmieren juntos, se calentarán;
+        mas ¿cómo se calentará uno solo?<br><br>
+        Y si alguno prevaleciere contra el uno, dos estarán contra él;
+        y cordón de tres dobleces no presto se rompe.”
       </blockquote>
-      <p class="referencia">Eclesiastés 4:9-12</p>
+      <p class="referencia">Eclesiastés 4:9-12 · Reina-Valera 1909</p>
       <div class="firma-final">Boris &amp; Dominique</div>
       <p class="fecha-final">23 · 04 · 2027</p>
     </section>
@@ -135,6 +141,14 @@
       <span>23 · 04 · 2027</span>
     </footer>
   </main>
+
+  <audio id="musicaBoda" preload="auto" loop>
+    <source src="assets/nuestra-cancion.mp3" type="audio/mpeg">
+  </audio>
+
+  <button class="musica-flotante" id="botonMusica" type="button" aria-label="Pausar o reproducir música" title="Música">
+    <span id="iconoMusica">♫</span>
+  </button>
 
   <script src="app.js"></script>
 </body>

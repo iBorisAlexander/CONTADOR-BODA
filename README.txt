@@ -1,20 +1,23 @@
-INVITACIÓN BORIS & DOMINIQUE — V4
+INVITACIÓN BODA — V5
 
-Abrir index.html para probar la invitación.
+CAMBIOS DE ESTA VERSIÓN
+- La canción comienza cuando el invitado toca "Abrir invitación".
+- Se eliminó el video de YouTube.
+- Se agregó un reproductor personalizado y un botón flotante de música.
+- El MP3 está incluido en assets/nuestra-cancion.mp3.
+- Se dejó Eclesiastés 4:9-12 al final (Reina-Valera 1909, dominio público).
 
-CONTENIDO:
-- Sobre animado
-- Foto de la pareja
-- Canción
-- Mensaje de invitación
-- Fecha 23/04/2027
-- Contador regresivo
-- Ceremonia y botón a Google Maps
-- Cierre con agradecimiento y 1 Corintios 13:7
+CAMBIAR HORA DE LA CEREMONIA
+Busca en index.html:
+00:00 hrs
 
-CAMBIAR LA HORA:
-En index.html busca: 00:00 hrs
-Reemplázalo por la hora definitiva.
+CAMBIAR HORA DEL CONTADOR
+Busca en app.js:
+2027-04-23T00:00:00-04:00
 
-La dirección configurada es:
-Lago Cóndor 111, 2571081 Viña del Mar, Valparaíso
+Ejemplo para 18:30:
+2027-04-23T18:30:00-04:00
+
+IMPORTANTE
+Sube a GitHub todos los archivos y carpetas manteniendo la estructura.
+El archivo principal debe llamarse index.html.

@@ -1,20 +1,20 @@
-INVITACIÓN BORIS & DOMINIQUE
+INVITACIÓN BORIS & DOMINIQUE — V4
 
-Archivos:
-- index.html
-- estilos.css
-- app.js
-- assets/fondo.png
-- assets/sobre.png
-- assets/foto-pareja.png
+Abrir index.html para probar la invitación.
 
-Para probarla:
-1. Abre index.html en el navegador.
-2. Toca el sobre para abrir la invitación.
-3. Todo funciona en una sola página; no cambia de URL ni recarga.
+CONTENIDO:
+- Sobre animado
+- Foto de la pareja
+- Canción
+- Mensaje de invitación
+- Fecha 23/04/2027
+- Contador regresivo
+- Ceremonia y botón a Google Maps
+- Cierre con agradecimiento y 1 Corintios 13:7
 
-Para GitHub Pages:
-1. Puedes subir estos archivos a un repositorio nuevo, o reemplazar el contenido de tu repo actual.
-2. index.html debe quedar en la raíz.
-3. La carpeta assets debe quedar junto a index.html.
-4. Activa Settings > Pages > Deploy from a branch > main > /(root).
+CAMBIAR LA HORA:
+En index.html busca: 00:00 hrs
+Reemplázalo por la hora definitiva.
+
+La dirección configurada es:
+Lago Cóndor 111, 2571081 Viña del Mar, Valparaíso

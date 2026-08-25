@@ -21,3 +21,14 @@ Ejemplo para 18:30:
 IMPORTANTE
 Sube a GitHub todos los archivos y carpetas manteniendo la estructura.
 El archivo principal debe llamarse index.html.
+
+
+NUEVAS SECCIONES V6
+- Código de vestimenta: Formal / Semi formal.
+- Sugerencia de regalo con texto Lorem provisional.
+- Confirmación de asistencia con botón provisional.
+- Álbum compartido con botón provisional.
+
+Cuando tengas el enlace de Google Forms y el enlace del álbum, reemplazaremos los botones provisionales por enlaces reales.
+
+V7: Vestimenta, regalo y confirmación ahora están agrupados en un solo bloque de Información importante. El álbum permanece separado.

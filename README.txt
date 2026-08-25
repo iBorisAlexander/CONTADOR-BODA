@@ -46,3 +46,5 @@ PARA ACTIVAR EL ÁLBUM
 5. Opcional: elimina aria-disabled="true" y cambia el texto "enlace por agregar".
 
 - Botón Confirmar asistencia conectado al Google Forms definitivo.
+
+- Botón Subir fotos y videos conectado al Google Forms del álbum.

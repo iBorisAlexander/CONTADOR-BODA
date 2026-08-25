@@ -44,3 +44,5 @@ PARA ACTIVAR EL ÁLBUM
    href="#" id="botonAlbum"
 4. Reemplaza # por el enlace de tu Google Forms.
 5. Opcional: elimina aria-disabled="true" y cambia el texto "enlace por agregar".
+
+- Botón Confirmar asistencia conectado al Google Forms definitivo.

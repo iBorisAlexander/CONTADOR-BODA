@@ -32,3 +32,15 @@ NUEVAS SECCIONES V6
 Cuando tengas el enlace de Google Forms y el enlace del álbum, reemplazaremos los botones provisionales por enlaces reales.
 
 V7: Vestimenta, regalo y confirmación ahora están agrupados en un solo bloque de Información importante. El álbum permanece separado.
+
+CAMBIOS FINALES
+- Versículo actualizado al texto proporcionado: Eclesiastés 4:9-12 · Reina-Valera 1960.
+- Álbum configurado para usar Google Forms + Google Drive gratis.
+
+PARA ACTIVAR EL ÁLBUM
+1. Crea tu Google Forms con una pregunta "Subir archivos".
+2. Copia el enlace del formulario.
+3. En index.html busca:
+   href="#" id="botonAlbum"
+4. Reemplaza # por el enlace de tu Google Forms.
+5. Opcional: elimina aria-disabled="true" y cambia el texto "enlace por agregar".

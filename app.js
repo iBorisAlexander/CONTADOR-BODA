@@ -141,3 +141,11 @@ const observador = new IntersectionObserver((entradas) => {
 document.querySelectorAll('.revelar').forEach((elemento) => observador.observe(elemento));
 
 actualizarEstadoMusica();
+
+
+// Mientras no agregues el enlace del formulario de fotos,
+// evita que el botón provisional mande al inicio de la página.
+const botonAlbum = document.getElementById('botonAlbum');
+if (botonAlbum && botonAlbum.getAttribute('href') === '#') {
+  botonAlbum.addEventListener('click', (evento) => evento.preventDefault());
+}
